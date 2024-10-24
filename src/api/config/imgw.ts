@@ -1,0 +1,1 @@
+export const IMGW_BASE_URL = 'https://danepubliczne.imgw.pl/api/data/synop';
