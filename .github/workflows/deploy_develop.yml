@@ -1,13 +1,21 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Develop To Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['develop']
-
+    branches: 
+      - 'feature/**'
+  pull_request:
+    branches:
+      - develop
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
@@ -15,16 +23,12 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    name: Deploying ${{ github.ref_name }}
     environment:
-      name: github-pages
+      name: develop-gp
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:

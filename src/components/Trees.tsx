@@ -24,7 +24,7 @@ type TreesModels = GLTF & {
 
 export const TreesModels = (props: JSX.IntrinsicElements['group']) => {
 	const group = useRef(null!);
-	const { nodes, materials } = useGLTF('/models/low_poly_trees.glb') as TreesModels;
+	const { nodes, materials } = useGLTF('models/low_poly_trees.glb') as TreesModels;
 	// const { nodes, materials } = useGLTF('/models/low_poly_trees.gltf') as TreesModels;
 	return (
 		<group ref={group} {...props} dispose={null}>
@@ -83,5 +83,5 @@ export const TreesModels = (props: JSX.IntrinsicElements['group']) => {
 	);
 };
 
-useGLTF.preload('/models/low_poly_trees.glb');
+useGLTF.preload('models/low_poly_trees.glb');
 // useGLTF.preload('/models/low_poly_trees.gltf');

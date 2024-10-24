@@ -27,8 +27,8 @@ type GLTFResult = GLTF & {
 
 export const PolandMapModel = (props: JSX.IntrinsicElements['group']) => {
 	const group = useRef(null!);
-	const { nodes } = useGLTF('/models/pl-map.glb') as GLTFResult;
-	// const { nodes } = useGLTF('/models/pl-map.gltf') as GLTFResult;
+	// const { nodes } = useGLTF('/meteo-synop/pl-map.glb') as GLTFResult;
+	const { nodes } = useGLTF('models/pl-map.glb') as GLTFResult;
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<mesh
@@ -46,5 +46,5 @@ export const PolandMapModel = (props: JSX.IntrinsicElements['group']) => {
 	);
 };
 
-useGLTF.preload('/models/pl-map.glb');
+useGLTF.preload('models/pl-map.glb');
 // useGLTF.preload('/models/pl-map.gltf');
